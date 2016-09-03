@@ -114,7 +114,7 @@ int InterfaceController::setEnableIPv6(const char *interface, const int on) {
     // When disable_ipv6 changes from 1 to 0, the kernel starts autoconf.
     // When disable_ipv6 changes from 0 to 1, the kernel clears all autoconf
     // addresses and routes and disables IPv6 on the interface.
-    const char *disable_ipv6 = on ? "1" : "1";
+    const char *disable_ipv6 = on ? "0" : "1";
     return writeValueToPath(ipv6_proc_path, interface, "disable_ipv6", disable_ipv6);
 }
 
