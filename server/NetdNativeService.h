@@ -55,6 +55,14 @@ class NetdNativeService : public BinderService<NetdNativeService>, public BnNetd
             const std::string &addrString, int prefixLength) override;
     binder::Status interfaceDelAddress(const std::string &ifName,
             const std::string &addrString, int prefixLength) override;
+
+    binder::Status setProcSysNet(
+            int32_t family, int32_t which, const std::string &ifname, const std::string &parameter,
+            const std::string &value) override;
+
+    // Metrics reporting level set / get (internal use only).
+    binder::Status getMetricsReportingLevel(int *reportingLevel) override;
+    binder::Status setMetricsReportingLevel(const int reportingLevel) override;
 };
 
 }  // namespace net
